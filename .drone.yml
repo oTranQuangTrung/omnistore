@@ -1,0 +1,17 @@
+pipeline:
+  test:
+    image: ruby:2.4.1
+    environment:
+      - DATABASE_DRIVER=mysql
+      - DATABASE_CONFIG=root@tcp(mysql:3306)/test?parseTime=true
+    commands:
+      - apt-get update -qq && apt-get install -y build-essential nodejs
+      - bundle install
+      - cp config/database.yml.docker.sample config/database.yml
+      - RAILS_ENV=test rake db:create db:migrate
+      - bundle exec rspec
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes

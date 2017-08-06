@@ -1,0 +1,99 @@
+.navbar.navbar-inverse.navbar-fixed-top
+  .navbar-header
+    = link_to root_path, class: "navbar-brand" do
+      = image_tag "logo_light.png", alt: ""
+
+    ul.nav.navbar-nav.visible-xs-block
+      li
+        a data-toggle="collapse" data-target="#navbar-mobile"
+          i.icon-tree5
+      li
+        a.sidebar-mobile-main-toggle
+          i.icon-paragraph-justify3
+
+  #navbar-mobile.navbar-collapse.collapse
+    ul.nav.navbar-nav
+      li
+        a.sidebar-control.sidebar-main-toggle.hidden-xs
+          i.icon-paragraph-justify3
+    .navbar-right
+      ul.nav.navbar-nav
+        / Todo user online
+        li.dropdown
+          = link_to "#", class: "dropdown-toggle", data: {toggle: "dropdown"} do
+            i.icon-people
+            span.visible-xs-inline-block.position-right = t ".users"
+          .dropdown-menu.dropdown-content
+            .dropdown-content-heading
+              = t ".user_online"
+              ul.icons-list
+                li
+                  = link_to "#" do
+                    i.icon-gear
+            ul.media-list.dropdown-content-body.width-300
+              - 5.times do
+                li.media
+                  .media-left
+                    = image_tag "placeholder.jpg", class: "img-circle img-sm", alt: ""
+                  .media-body
+                    = link_to "Bobo", "#", class: "media-heading text-semibold"
+                    span.display-block.text-muted.text-size-small = "Marketing manager"
+            .dropdown-content-footer
+              = link_to "#", data: {popup: "tooltip"}, title: "All users" do
+                i.icon-menu.display-block
+        / Todo message
+        li.dropdown
+          = link_to "#", class: "dropdown-toggle", data: {toggle: "dropdown"} do
+            i.icon-bubbles4
+            span.visible-xs-inline-block.position-right = t ".messages"
+            span.badge.bg-warning-400 = "2"
+          .dropdown-menu.dropdown-content.width-350
+            .dropdown-content-heading
+              = t ".messages"
+              ul.icons-list
+                li
+                  = link_to "#" do
+                    i.icon-compose
+            ul.media-list.dropdown-content-body
+              - 5.times do
+                li.media
+                  .media-left
+                    = image_tag "placeholder.jpg", class: "img-circle img-sm", alt: ""
+                    span.badge.bg-danger-400.media-badge = "5"
+                  .media-body
+                    = link_to "#", class: "media-heading"
+                      span.text-semibold = "Bobo"
+                      span.media-annotation.pull-right = "04:58"
+                    span.text-muted = "Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck "
+            .dropdown-content-footer
+              = link_to "#", data: {popup: "tooltip"}, title: "All messages" do
+                i.icon-menu.display-block
+        / User setting
+        li.dropdown.dropdown-user
+          a.dropdown-toggle data-toggle="dropdown"
+            = image_tag "placeholder.jpg", alt: ""
+            span = "Bobo"
+            i.caret
+          ul.dropdown-menu.dropdown-menu-right
+            li
+              = link_to "#" do
+                i.icon-user-plus
+                = t ".my_profile"
+            li
+              = link_to "#" do
+                i.icon-coins
+                = t ".my_balance"
+            li
+              = link_to "#" do
+                span.badge.bg-blue.pull-right = 58
+                i.icon-comment-discussion
+                = t ".messages"
+            li.divider
+            li
+              = link_to "#" do
+                i.icon-cog5
+                = t ".account_setting"
+            li
+              = link_to "#" do
+                i.icon-switch2
+                = t ".logout"

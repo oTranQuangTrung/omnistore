@@ -1,0 +1,47 @@
+.sidebar.sidebar-main.sidebar-fixed
+  .sidebar-content
+    / Main navigation
+    .sidebar-category.sidebar-category-visible
+      .category-content.no-padding
+        ul.navigation.navigation-main.navigation-accordion
+          li.navigation-header
+            span = "Main"
+            i.icon-menu title="Main pages"
+          li class="#{active_when current_controller?(:dashboards)}"
+            = link_to root_path do
+              i.icon-home4
+              span = t ".dashboard"
+          li
+            = link_to "#" do
+              i.icon-drawer
+              span = t ".invoice"
+            ul
+              li = link_to t(".list_invoices"), "#"
+              li = link_to t(".invoice_draft"), "#"
+          li
+            = link_to "#" do
+              i.icon-truck
+              span = t ".transport"
+            ul
+              li = link_to t(".overview"), "#"
+              li = link_to t(".transport"), "#"
+              li = link_to t(".cod_management"), "#"
+              li = link_to t(".configure"), "#"
+          li
+            = link_to "#" do
+              i.icon-price-tags
+              span = t ".products"
+            ul
+              li = link_to t(".list_products"), "#"
+          li
+            = link_to "#" do
+              i.icon-users4
+              span = t ".customers"
+          li
+            = link_to "#" do
+              i.icon-stats-dots
+              span = t ".reports"
+          li
+            = link_to "#" do
+              i.icon-gift
+              span = t ".promotions"

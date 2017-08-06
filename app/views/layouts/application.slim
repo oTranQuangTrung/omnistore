@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    title = full_title yield :title
+
+    = csrf_meta_tags
+
+    / Global stylesheets
+    = stylesheet_link_tag "application", media: "all"
+    / Page stylesheets
+    = yield :specific_page_css
+    / Core JS File
+    = javascript_include_tag "application"
+    / Page JS files
+    = yield :specific_page_js
+    / Theme JS files
+    = javascript_include_tag "plugins/ui/nicescroll.min.js"
+    = javascript_include_tag "core/app.js"
+    = javascript_include_tag "pages/layout_fixed_custom.js"
+
+  body
+    / Main navbar
+    = render "layouts/main_navbar"
+    / Page container
+    .page-container
+      .page-content
+        / Main sidebar
+        = render "layouts/main_sidebar"
+        .content-wrapper
+          = yield
+    / Footer
+    = render "layouts/footer"

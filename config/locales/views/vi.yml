@@ -1,0 +1,29 @@
+vi:
+  layouts:
+    main_navbar:
+      users: Users
+      user_online: Users online
+      messages: Messages
+      my_profile: My profile
+      my_balance: My balance
+      account_setting: Account Settings
+      logout: Logout
+    main_sidebar:
+      dashboard: Quản lý chung
+      invoice: Đơn hàng
+      transport: Vận chuyển
+      products: Sản phẩm
+      customers: Khách hàng
+      reports: Báo cáo
+      promotions: Khuyến mãi
+      list_invoices: Danh sách đơn hàng
+      invoice_draft: Đơn hàng nháp
+      overview: Tổng quan
+      cod_management: Quản lý COD
+      configure: Cấu hình vận chuyển
+      list_products: Danh sách sản phẩm
+    footer:
+      help_center: Help Center
+      policy: Policy
+      upgrate_account: Upgrade your account
+      settings: Settings

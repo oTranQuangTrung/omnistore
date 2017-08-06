@@ -1,0 +1,38 @@
+.navbar.navbar-default.navbar-fixed-bottom
+  ul.nav.navbar-nav.no-border.visible-xs-block
+    li
+      a.text-center.collapsed data-toggle="collapse" data-target="#navbar-second"
+        i.icon-circle-up2
+  #navbar-second.navbar-collapse.collapse
+    .navbar-text
+      | &copy; 2017.&nbsp;
+      = link_to t("app_name"), "#"
+      | &nbsp;by&nbsp;
+      = link_to t("team_name"), "#", target: "_blank"
+    .navbar-right
+      ul.nav.navbar-nav
+        li = link_to t(".help_center"), "#"
+        li = link_to t(".policy"), "#"
+        li = link_to t(".upgrate_account"), "#", class: "text-semibold"
+        li.dropdown
+          = link_to "#", class: "dropdown-toggle", data: {toggle: "dropdown"} do
+            i.icon-cog3
+            span.visible-xs-inline-block.position-right = t ".settings"
+            span.caret
+          ul.dropdown-menu.dropdown-menu-right
+            li
+              = link_to "#" do
+                i.icon-dribbble3
+                = "Dribbble"
+            li
+              = link_to "#" do
+                i.icon-pinterest2
+                = "Pinterest"
+            li
+              = link_to "#" do
+                i.icon-github
+                = "Github"
+            li
+              = link_to "#" do
+                i.icon-stackoverflow
+                = "Stack Overflow"
