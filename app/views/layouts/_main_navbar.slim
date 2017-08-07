@@ -71,8 +71,8 @@
         / User setting
         li.dropdown.dropdown-user
           a.dropdown-toggle data-toggle="dropdown"
-            = image_tag "placeholder.jpg", alt: ""
-            span = "Bobo"
+            = image_tag current_user.profile_picture_url, alt: ""
+            span = current_user.name
             i.caret
           ul.dropdown-menu.dropdown-menu-right
             li
@@ -94,6 +94,6 @@
                 i.icon-cog5
                 = t ".account_setting"
             li
-              = link_to "#" do
+              = link_to destroy_user_session_path, method: :delete do
                 i.icon-switch2
                 = t ".logout"
