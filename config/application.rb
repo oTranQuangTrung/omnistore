@@ -24,5 +24,6 @@ module Omnistore
     I18n.available_locales = [:en, :vi]
     config.time_zone = "Hanoi"
     config.i18n.default_locale = :vi
+    config.to_prepare { Devise::SessionsController.layout "devise" }
   end
 end

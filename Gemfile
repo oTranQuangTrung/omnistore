@@ -17,6 +17,8 @@ gem "jbuilder", "~> 2.5"
 gem "config"
 gem "figaro"
 gem "slim"
+gem "devise"
+gem "omniauth-facebook"
 
 group :development do
   gem "web-console", ">= 3.3.0"
