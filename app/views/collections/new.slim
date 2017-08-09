@@ -1,0 +1,23 @@
+= content_for :head_javascript do
+  = javascript_include_tag "pages/collections/form.js"
+= content_for :breadcrumbs, [[t("layouts.main_sidebar.products"),
+  "#", "icon-price-tags"], [t("layouts.main_sidebar.list_collections"), collections_path, ""], t(".page_title")]
+= form_for @collection do |f|
+  .page-header.page-header-default
+    .page-header-content
+      .page-title
+        h4
+          i.icon-arrow-left52.position-left
+          span.text-semibold
+            = t ".page_title"
+      .heading-elements
+        button.btn.btn-primary.heading-btn type="submit"
+          strong = t ".save"
+        button.btn.btn-default.heading-btn.ml-10 type="button"
+          strong = t ".cancel"
+  .content
+    = render "form", f: f
+
+= content_for :body_javascript do
+  javascript:
+    #{render "shared/upload_image.js"}

@@ -1,0 +1,14 @@
+tr
+  td.width-80
+    = image_tag collection.featured_image_display, alt: "", class: "img-thumbnail img-sm"
+  td = collection.name_display.html_safe
+  td = collection.description_display
+  td.width-80
+    ul.icons-list
+      li.text-primary-600
+        = link_to edit_collection_path(collection), title: t(".edit") do
+          i.icon-pencil7
+      li.text-danger-600
+        = link_to collection_path(collection), method: :delete,
+          data: {confirm: t("dictionary.confirm")}, title: t(".delete") do
+          i.icon-trash

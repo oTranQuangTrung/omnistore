@@ -1,4 +1,6 @@
 vi:
+  dictionary:
+    confirm: Bạn chắc chắn muốn thực hiện điều này?
   layouts:
     main_navbar:
       users: Users
@@ -24,6 +26,8 @@ vi:
       list_products: Danh sách hàng hóa
       new_shop: Thêm cửa hàng
       shop_list: Danh sách cửa hàng
+      list_products: Danh sách sản phẩm
+      list_collections: Nhóm sản phẩm
     footer:
       help_center: Help Center
       policy: Policy
@@ -56,14 +60,32 @@ vi:
     form:
       name: Tên cửa hàng
       submit: Tạo cửa hàng
-
   facebook_pages:
     facebook_page:
       connect: Kết nối
       confirm: Bạn có chắc chắn muốn kết nối cửa hàng %{shop_name} với trang Facebook %{facebook_page_name} không ?
     index:
       empty: Bạn hiện không quản lý trang facebook nào.
-
   facebook_chats:
     show:
       disconnect_facebook_page: Ngắt kết nối với Facebook
+  collections:
+    index:
+      page_title: Nhóm sản phẩm
+      new_collection_btn: Tạo nhóm sản phẩm
+      name: Tên nhóm
+      description: Mô tả
+      featured_image: Ảnh đại diện
+      status: Trạng thái
+    new:
+      page_title: Thêm nhóm sản phẩm
+    collection:
+      inactive: Ẩn
+      delete: Xoá
+      edit: Chỉnh sửa
+    form:
+      name: Tên nhóm sản phẩm
+      public: Hiển thị
+      website: Website
+      feature_image: Hình đại diện
+      description: Mô tả

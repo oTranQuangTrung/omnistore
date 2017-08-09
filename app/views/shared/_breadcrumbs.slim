@@ -1,0 +1,15 @@
+- if content_for?(:breadcrumbs)
+  .breadcrumb-line
+    ul.breadcrumb
+      - breadcrumbs = JSON.parse(sanitize yield(:breadcrumbs))
+      - breadcrumbs.each do |breadcrumb|
+        li class="#{breadcrumb.equal?(breadcrumbs.last) ? 'active' : nil}"
+          - case breadcrumb.class.to_s
+          - when "Array"
+            - string, link, icon_class = breadcrumb
+            = link_to link.presence || "javascript:void(0)" do
+              - if icon_class.present?
+                i class="#{icon_class} position-left"
+              = "#{string}"
+          - when "String"
+            = "#{breadcrumb}"

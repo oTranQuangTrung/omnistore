@@ -12,21 +12,22 @@
 
 ActiveRecord::Schema.define(version: 20170820085034) do
 
-  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "collections", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "shop_id"
     t.string "name"
     t.text "description"
+    t.string "featured_image"
+    t.boolean "public", default: true
+    t.datetime "published_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["shop_id"], name: "index_categories_on_shop_id"
+    t.index ["shop_id"], name: "index_collections_on_shop_id"
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "category_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   create_table "shops", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -68,8 +69,7 @@ ActiveRecord::Schema.define(version: 20170820085034) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "categories", "shops"
-  add_foreign_key "products", "categories"
+  add_foreign_key "collections", "shops"
   add_foreign_key "user_shops", "shops"
   add_foreign_key "user_shops", "users"
 end

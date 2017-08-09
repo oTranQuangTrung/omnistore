@@ -1,0 +1,13 @@
+.visible-action .heading-elements-toggle {
+  display: none;
+}
+
+label.required::after {
+  content: " *";
+  color: #F44336 !important;
+}
+
+// ---- Width
+.width-80 {
+  width: 80px !important;
+}

@@ -25,4 +25,43 @@ module ApplicationHelper
       end
     end
   end
+
+  def default_image_path
+    "placeholder.jpg"
+  end
+
+  def flash_class name
+    case name
+    when "alert"
+      "bg-warning"
+    when "info"
+      "bg-info"
+    when "success"
+      "bg-success"
+    else
+      "bg-info"
+    end
+  end
+
+  ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
+    if /class=.*hide_error.*/ =~ html_tag || /type=.*hidden.*/ =~ html_tag
+      html_tag
+    else
+      if instance.error_message.kind_of? Array
+        error_msg = ""
+        instance.error_message.each do |message|
+          error_msg += %(<label class="validation-error-label">#{message}</label>)
+        end
+        error_msg
+      else
+        error_msg = %(<label class="validation-error-label">#{instance.error_message}</label>)
+      end
+      if /class=.*top_error.*/ =~ html_tag
+        "#{error_msg}#{html_tag}"
+      else
+        "#{html_tag}#{error_msg}"
+      end
+    end.html_safe
+  end
+
 end

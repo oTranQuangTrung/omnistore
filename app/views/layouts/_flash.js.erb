@@ -1,0 +1,16 @@
+<% flash.each do |key, value| %>
+  $(function(){
+    var addclass = "<%= flash_class key %>";
+    new PNotify({
+      text: "<%= value %>",
+      addclass: "stack-custom-bottom " + addclass,
+      width: "100%",
+      cornerclass: "no-border-radius",
+      delay: 3000,
+      stack: {"dir1": "up", "dir2": "right", "spacing1": 1},
+      after_close: function(){
+        <% flash.delete(key) %>
+      }
+    });
+  });
+<% end %>

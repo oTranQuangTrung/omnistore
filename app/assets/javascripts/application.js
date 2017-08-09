@@ -15,3 +15,5 @@
 //= require rails-ujs
 //= require core/libraries/bootstrap.min.js
 //= require plugins/loaders/blockui.min.js
+//= require plugins/ui/nicescroll.min.js
+//= require plugins/notifications/pnotify.min.js

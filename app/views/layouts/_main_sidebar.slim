@@ -27,12 +27,14 @@
               li = link_to t(".transport"), "#"
               li = link_to t(".cod_management"), "#"
               li = link_to t(".configure"), "#"
-          li
+          li class="#{active_when current_controller?(:products, :collections)}"
             = link_to "#" do
               i.icon-price-tags
               span = t ".products"
             ul
               li = link_to t(".list_products"), "#"
+              li class="#{active_when current_controller?(:collections)}"
+                = link_to t(".list_collections"), collections_path
           li class="#{active_when current_controller?(:shops)}"
             = link_to "#" do
               i.icon-store2

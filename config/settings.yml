@@ -1,0 +1,7 @@
+pagination:
+  default: 10
+  collections: 10
+truncate:
+  short: 20
+  medium: 50
+  long: 100

@@ -11,7 +11,7 @@ RSpec.describe Shop, type: :model do
     end
 
     it "should has many categories" do
-      should have_many(:categories).dependent(:destroy)
+      should have_many(:collections).dependent(:destroy)
     end
   end
 end
