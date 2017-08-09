@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   get "/mock/layout", to: redirect("/limitless/layout/index.html")
 
   root "dashboards#index"
+
+  resources :users
+
+  get "*path", to: "application#rescue404" unless Rails.application.config.consider_all_requests_local
 end

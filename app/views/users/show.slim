@@ -1,0 +1,15 @@
+.table-responsive
+  table.table
+    thead
+      tr.bg-slate-800
+        th.col-xs-1 #
+        th.col-xs-4 = t ".fanpage_id"
+        th.col-xs-5 = t ".fanpage_name"
+        th = t ".action"
+    tbody
+      tr
+        td 1
+        td Eugene
+        td Kopyov
+        td
+          = link_to t(".connect_shop"), "#", class: "btn bg-success"

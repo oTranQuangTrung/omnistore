@@ -27,3 +27,13 @@ vi:
       policy: Policy
       upgrate_account: Upgrade your account
       settings: Settings
+  errors:
+    not_found:
+      root_path: Trở về trang quản lý
+      common_error: Rất tiếc, đã xảy ra lỗi. Không tìm thấy trang!
+  users:
+    show:
+      fanpage_id: Fanpage ID
+      fanpage_name: Fanpage name
+      action: Action
+      connect_shop: Connect shop

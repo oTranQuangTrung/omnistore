@@ -1,0 +1,13 @@
+.page-container
+  .page-content
+    .content-wrapper
+      .content
+        .text-center.content-group
+          h1.error-title 404
+          h5 = t ".common_error"
+        .row
+          .col-lg-4.col-lg-offset-4.col-sm-6.col-sm-offset-3
+            .row
+              = link_to root_path, class: "btn btn-primary btn-block content-group" do
+                i.icon-circle-left2.position-left
+                = t ".root_path"
