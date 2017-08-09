@@ -1,0 +1,11 @@
+= form_for shop, html: {class: "form-horizontal"} do |f|
+  fieldset.content-group
+    .form-group class=("has-error" if show_errors(shop, :name))
+      = f.label :name, t(".name"), class: "control-label col-lg-2"
+      .col-lg-10
+        = f.text_field :name, class: "form-control"
+        - if show_errors shop, :name
+          span.help-block
+            = show_errors shop, :name
+  .text-right
+    = f.button t(".submit"), class: "btn btn-primary"

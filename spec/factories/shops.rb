@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :shop do
-    name "MyString"
+    name {Faker::Bank.name}
   end
 end

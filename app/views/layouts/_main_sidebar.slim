@@ -33,6 +33,15 @@
               span = t ".products"
             ul
               li = link_to t(".list_products"), "#"
+          li class="#{active_when current_controller?(:shops)}"
+            = link_to "#" do
+              i.icon-store2
+              span = t ".shops"
+            ul
+              li class="#{active_when(current_controller?(:shops) && current_action?(:new))}"
+                = link_to t(".new_shop"), new_shop_path
+              li class="#{active_when(current_controller?(:shops) && current_action?(:index))}"
+                = link_to t(".shop_list"), shops_path
           li
             = link_to "#" do
               i.icon-users4
