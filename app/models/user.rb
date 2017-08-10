@@ -15,6 +15,7 @@ class User < ApplicationRecord
 
     def from_omniauth(auth)
       find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
+        user.facebook_access_token = auth["credentials"]["token"]
         user.email = auth.info.email || "#{Devise.friendly_token}@omniauth.com"
         user.password = Devise.friendly_token[0, 20]
         user.name = auth.info.name

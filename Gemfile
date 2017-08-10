@@ -19,6 +19,7 @@ gem "figaro"
 gem "slim"
 gem "devise"
 gem "omniauth-facebook"
+gem "koala"
 
 group :development do
   gem "web-console", ">= 3.3.0"
