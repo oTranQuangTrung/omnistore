@@ -12,7 +12,6 @@ vi:
       dashboard: Quản lý chung
       invoice: Đơn hàng
       transport: Vận chuyển
-      products: Sản phẩm
       customers: Khách hàng
       reports: Báo cáo
       promotions: Khuyến mãi
@@ -21,7 +20,10 @@ vi:
       overview: Tổng quan
       cod_management: Quản lý COD
       configure: Cấu hình vận chuyển
-      list_products: Danh sách sản phẩm
+      products: Shop
+      list_products: Danh sách shop
+      new_shop: Thêm cửa hàng
+      shop_list: Danh sách cửa hàng
     footer:
       help_center: Help Center
       policy: Policy
@@ -37,3 +39,15 @@ vi:
       fanpage_name: Fanpage name
       action: Action
       connect_shop: Connect shop
+  shops:
+    index:
+      shop_list: Danh sách cửa hàng
+      name: Tên cửa hàng
+      created_at: Thời gian tạo
+      shop_empty: Hiện chưa có cửa hàng nào
+      new_shop: Tạo cửa hàng
+    new:
+      create_shop: Tạo cửa hàng
+    form:
+      name: Tên cửa hàng
+      submit: Tạo cửa hàng

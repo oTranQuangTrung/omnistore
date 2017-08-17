@@ -1,0 +1,20 @@
+.content
+  .panel.panel-white
+    - if @shops.present?
+      .panel-heading
+        .panel-title = t ".shop_list"
+      .dataTables_wrapper.no-footer
+        .datatable-scroll-lg
+          table.table.tasks-list.table-lg.dataTable.no-footer role="grid"
+            thead
+              tr role="row"
+                th = t ".name"
+                th = t ".created_at"
+            tbody
+              = render @shops
+    - else
+      .panel-heading
+        h5.panel-title = t ".shop_empty"
+      .panel-body
+        = link_to new_shop_path
+          = button_tag t(".new_shop"), class: "btn btn-primary"
