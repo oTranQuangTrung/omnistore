@@ -1,0 +1,12 @@
+li.dropdown
+  a.dropdown-toggle data-toggle="dropdown"
+    - if current_shop
+      = current_shop.name
+    - else
+      = t "shops.empty"
+    span.caret
+  - if current_user_shop_list.present?
+    ul.dropdown-menu
+      - current_user_shop_list.each do |shop|
+        - next if shop.new_record?
+        li = link_to shop.name, set_current_shop_path(shop_id: shop.id)

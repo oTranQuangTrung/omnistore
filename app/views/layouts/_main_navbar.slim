@@ -18,6 +18,9 @@
           i.icon-paragraph-justify3
     .navbar-right
       ul.nav.navbar-nav
+        / Shop list
+        = render "layouts/shop_list"
+
         / Todo user online
         li.dropdown
           = link_to "#", class: "dropdown-toggle", data: {toggle: "dropdown"} do
