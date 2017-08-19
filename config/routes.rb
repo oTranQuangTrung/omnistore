@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root "dashboards#index"
 
   resources :users
+  resources :facebook_fanpages, only: :index
   resources :shops, only: [:new, :create, :index]
 
   get "*path", to: "application#rescue404" unless Rails.application.config.consider_all_requests_local
