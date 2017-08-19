@@ -1,7 +1,7 @@
-class FacebookFanpage
-  attr_accessor :category_name, :token, :name, :id, :perms
+class FacebookPage
+  attr_accessor :category_name, :access_token, :name, :id, :perms
 
-  def initialize(attributes = {})
+  def initialize attributes = {}
     attributes.each do |name, value|
       send "#{name}=", value
     end
