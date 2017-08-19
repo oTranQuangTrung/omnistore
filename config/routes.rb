@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root "dashboards#index"
 
   resources :users
+  resources :facebook_fanpages, only: :index
   resources :shops, only: [:new, :create, :index]
 
   get "/set_current_shop" => "shops#set_current_shop"

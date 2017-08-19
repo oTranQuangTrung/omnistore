@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
   def rescue404
     render "errors/not_found", status: 404, layout: "devise"
   end
+
+  def current_user? user
+    current_user == user
+  end
 end
