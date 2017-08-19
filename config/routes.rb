@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   resources :facebook_fanpages, only: :index
   resources :shops, only: [:new, :create, :index]
 
+  get "/set_current_shop" => "shops#set_current_shop"
+
   get "*path", to: "application#rescue404" unless Rails.application.config.consider_all_requests_local
 end

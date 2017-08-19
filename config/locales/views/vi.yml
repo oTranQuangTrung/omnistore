@@ -20,8 +20,8 @@ vi:
       overview: Tổng quan
       cod_management: Quản lý COD
       configure: Cấu hình vận chuyển
-      products: Shop
-      list_products: Danh sách shop
+      products: Hàng hóa
+      list_products: Danh sách hàng hóa
       new_shop: Thêm cửa hàng
       shop_list: Danh sách cửa hàng
     footer:
@@ -43,6 +43,8 @@ vi:
       action: Hành động
       connect_shop: Connect shop
   shops:
+    empty: Chưa có cửa hàng nào
+
     index:
       shop_list: Danh sách cửa hàng
       name: Tên cửa hàng
