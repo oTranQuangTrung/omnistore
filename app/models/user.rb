@@ -14,13 +14,15 @@ class User < ApplicationRecord
     end
 
     def from_omniauth(auth)
-      find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
-        user.facebook_access_token = auth["credentials"]["token"]
-        user.email = auth.info.email || "#{Devise.friendly_token}@omniauth.com"
-        user.password = Devise.friendly_token[0, 20]
-        user.name = auth.info.name
-        user.profile_picture_url = auth.info.image
-      end
+      user = find_or_initialize_by provider: auth.provider, uid: auth.uid
+      user.update_attributes(
+        facebook_access_token: auth["credentials"]["token"],
+        email: auth.info.email || "#{Devise.friendly_token}@omniauth.com",
+        password: Devise.friendly_token[0, 20],
+        name: auth.info.name,
+        profile_picture_url: auth.info.image
+      )
+      return user
     end
   end
 end
