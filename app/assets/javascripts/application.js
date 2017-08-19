@@ -15,3 +15,4 @@
 //= require rails-ujs
 //= require core/libraries/bootstrap.min.js
 //= require plugins/loaders/blockui.min.js
+//= require common.js
