@@ -5,7 +5,7 @@ vi:
       user_online: Users online
       messages: Messages
       my_profile: My profile
-      my_page: Danh sách fanpage
+      my_page: Danh sách Facebook page
       account_setting: Account Settings
       logout: Logout
     main_sidebar:
