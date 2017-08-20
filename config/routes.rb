@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   resources :facebook_pages, only: :index
   resources :shops, only: [:new, :create, :index]
 
+  resource :facebook_chat, only: :show
+
   get "/set_current_shop" => "shops#set_current_shop"
+  post "/connect_to_facebook_page" => "shops#connect_to_facebook_page"
+  post "/disconnect_facebook_page" => "shops#disconnect_facebook_page"
 
   get "*path", to: "application#rescue404" unless Rails.application.config.consider_all_requests_local
 end

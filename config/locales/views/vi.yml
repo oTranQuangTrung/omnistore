@@ -56,3 +56,14 @@ vi:
     form:
       name: Tên cửa hàng
       submit: Tạo cửa hàng
+
+  facebook_pages:
+    facebook_page:
+      connect: Kết nối
+      confirm: Bạn có chắc chắn muốn kết nối cửa hàng %{shop_name} với trang Facebook %{facebook_page_name} không ?
+    index:
+      empty: Bạn hiện không quản lý trang facebook nào.
+
+  facebook_chats:
+    show:
+      disconnect_facebook_page: Ngắt kết nối với Facebook
