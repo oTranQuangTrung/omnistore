@@ -253,7 +253,7 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
   config.omniauth :facebook, ENV["omnistore_facebook_app_id"], ENV["omnistore_facebook_app_secret"],
-    callback_url: ENV["omnistore_facebook_callback_url"], scope: "manage_pages,publish_pages,pages_messaging"
+    callback_url: ENV["omnistore_facebook_callback_url"], scope: "user_about_me,email,public_profile,manage_pages,publish_pages,pages_messaging"
 
 
   # ==> Warden configuration
