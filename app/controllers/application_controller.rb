@@ -15,4 +15,11 @@ class ApplicationController < ActionController::Base
   def current_user? user
     current_user == user
   end
+
+  def handle_user_not_has_any_shop
+    unless current_shop
+      flash[:alert] = t "shops.empty"
+      redirect_to new_shop_path
+    end
+  end
 end

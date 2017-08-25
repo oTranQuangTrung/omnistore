@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170810095223) do
+ActiveRecord::Schema.define(version: 20170820085034) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "shop_id"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20170810095223) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "facebook_page_id"
+    t.string "facebook_page_access_token"
   end
 
   create_table "user_shops", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

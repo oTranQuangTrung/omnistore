@@ -43,9 +43,9 @@
               li class="#{active_when(current_controller?(:shops) && current_action?(:index))}"
                 = link_to t(".shop_list"), shops_path
           li
-            = link_to "#" do
+            = link_to facebook_chat_path do
               i.icon-users4
-              span = t ".customers"
+              span = t ".facebook_chat"
           li
             = link_to "#" do
               i.icon-stats-dots

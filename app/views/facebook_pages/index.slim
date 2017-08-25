@@ -1,18 +1,11 @@
-.table-responsive
-  table.table
-    thead
-      tr.bg-slate-800
-        th.col-xs-1 #
-        th.col-xs-4 = t ".category_name"
-        th.col-xs-3 = t ".facebook_page_id"
-        th.col-xs-4 = t ".facebook_page_name"
-        th = t ".action"
-    tbody
-      - @pages.each.with_index(1) do |page, index|
-        tr
-          td = index
-          td = page.category_name
-          td = page.id
-          td = page.name
-          td
-            = link_to t(".connect_shop"), "#", class: "btn bg-success"
+.content
+  .panel.panel-white
+    - if @facebook_pages.present?
+      .panel-heading
+        .panel-title = t ".facebook_page_list"
+      .panel-body
+        ul.media-list
+          = render partial: "facebook_page", collection: @facebook_pages
+    - else
+      .panel-heading
+        h5.panel-title = t ".empty"

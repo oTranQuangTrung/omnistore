@@ -1,0 +1,8 @@
+.content
+  .panel.panel-white
+    .panel-heading
+      = "Bạn đã kết nối tới trang Facebook : #{@facebook_page.name}"
+    .panel-body
+      = link_to disconnect_facebook_page_path, method: :post,
+        data: {confirm: "Are you sure ?"}
+        = button_tag t(".disconnect_facebook_page"), class: "btn btn-danger"
