@@ -1,0 +1,30 @@
+.row
+  .col-md-8
+    .panel.panel-flat
+      .panel-body
+        .form-group
+          = f.label :name, t(".name"), class: "required hide_error"
+          = f.text_field :name, class: "form-control"
+        .form-group
+          = f.label :description, t(".description")
+          = f.text_area :description, class: "form-control", rows: 8
+  .col-md-4
+    .panel.panel-default
+      .panel-heading
+        h5.panel-title
+          = t ".public"
+      .panel-body
+        label.checkbox-inline
+          = f.check_box :public, {class: "styled"}, "true", "false"
+          = t ".website"
+
+    .panel.panel-default
+      .panel-heading
+        h5.panel-title
+          = t ".feature_image"
+      .panel-body
+        .form-group
+          = f.file_field :featured_image, accept: "image/*", class: "file-input-custom",
+            data: {"initial-preview" => f.object.featured_image_url}
+          = f.hidden_field :featured_image_cache
+

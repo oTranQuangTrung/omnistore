@@ -1,0 +1,18 @@
+vi:
+  dictionary:
+    created: &created "%{name} đã được tạo thành công."
+    error_create: &error_create "%{name} không thể tạo mới."
+    updated: &updated "%{name} đã cập nhật thành công."
+    error_update: &error_update "%{name} không thể cập nhật."
+    deleted: &deleted "%{name} đã xóa thành công."
+    error_deleted: &error_deleted "%{name} không thể xóa."
+  collections:
+    update:
+      updated: *updated
+      error_update: *error_update
+    create:
+      created: *created
+      error_create: *error_create
+    destroy:
+      deleted: *updated
+      error_deleted: *error_update

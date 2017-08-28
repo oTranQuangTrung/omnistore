@@ -11,15 +11,13 @@ html
     / Global stylesheets
     = stylesheet_link_tag "application", media: "all"
     / Page stylesheets
-    = yield :specific_page_css
+    = yield :head_style
     / Core JS File
     = javascript_include_tag "application"
-    / Page JS files
-    = yield :specific_page_js
+    / Page Plugin JS files
+    = yield :head_javascript
     / Theme JS files
-    = javascript_include_tag "plugins/ui/nicescroll.min.js"
     = javascript_include_tag "core/app.js"
-    = javascript_include_tag "pages/layout_fixed_custom.js"
 
   body
     / Page container
@@ -27,3 +25,7 @@ html
       .page-content
         .content-wrapper
           = yield
+    / Footer
+    = render "layouts/footer"
+    / Page custom js files
+    = yield :body_javascript

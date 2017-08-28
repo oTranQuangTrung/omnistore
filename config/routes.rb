@@ -3,12 +3,12 @@ Rails.application.routes.draw do
 
   get "/mock/document", to: redirect("/limitless/Documentation/index.html")
   get "/mock/layout", to: redirect("/limitless/layout/index.html")
-
   root "dashboards#index"
 
   resources :users
   resources :facebook_pages, only: :index
   resources :shops, only: [:new, :create, :index]
+  resources :collections
 
   resource :facebook_chat, only: :show
 

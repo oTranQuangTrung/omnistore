@@ -17,9 +17,7 @@ html
     / Page JS files
     = yield :head_javascript
     / Theme JS files
-    = javascript_include_tag "plugins/ui/nicescroll.min.js"
     = javascript_include_tag "core/app.js"
-    = javascript_include_tag "pages/layout_fixed_custom.js"
 
   body.navbar-top
     / Main navbar
@@ -30,7 +28,13 @@ html
         / Main sidebar
         = render "layouts/main_sidebar"
         .content-wrapper
+          .page-header.page-header-default
+            = render "shared/breadcrumbs"
+            = yield :header_content
           = yield
     / Footer
     = render "layouts/footer"
+    / Page custom js files
     = yield :body_javascript
+    javascript:
+      #{render "layouts/flash.js"}

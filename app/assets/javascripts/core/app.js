@@ -126,7 +126,7 @@ $(function() {
     $('.panel [data-action=reload]').click(function (e) {
         e.preventDefault();
         var block = $(this).parent().parent().parent().parent().parent();
-        $(block).block({ 
+        $(block).block({
             message: '<i class="icon-spinner2 spinner"></i>',
             overlayCSS: {
                 backgroundColor: '#fff',
@@ -144,7 +144,7 @@ $(function() {
         // For demo purposes
         window.setTimeout(function () {
            $(block).unblock();
-        }, 2000); 
+        }, 2000);
     });
 
 
@@ -152,7 +152,7 @@ $(function() {
     $('.category-title [data-action=reload]').click(function (e) {
         e.preventDefault();
         var block = $(this).parent().parent().parent().parent();
-        $(block).block({ 
+        $(block).block({
             message: '<i class="icon-spinner2 spinner"></i>',
             overlayCSS: {
                 backgroundColor: '#000',
@@ -171,15 +171,15 @@ $(function() {
         // For demo purposes
         window.setTimeout(function () {
            $(block).unblock();
-        }, 2000); 
-    }); 
+        }, 2000);
+    });
 
 
     // Light sidebar categories
     $('.sidebar-default .category-title [data-action=reload]').click(function (e) {
         e.preventDefault();
         var block = $(this).parent().parent().parent().parent();
-        $(block).block({ 
+        $(block).block({
             message: '<i class="icon-spinner2 spinner"></i>',
             overlayCSS: {
                 backgroundColor: '#fff',
@@ -197,8 +197,8 @@ $(function() {
         // For demo purposes
         window.setTimeout(function () {
            $(block).unblock();
-        }, 2000); 
-    }); 
+        }, 2000);
+    });
 
 
 
@@ -309,7 +309,7 @@ $(function() {
     // Add active state to all dropdown parent levels
     $('.dropdown-menu:not(.dropdown-content), .dropdown-menu:not(.dropdown-content) .dropdown-submenu').has('li.active').addClass('active').parents('.navbar-nav .dropdown:not(.language-switch), .navbar-nav .dropup:not(.language-switch)').addClass('active');
 
-    
+
 
     // Main navigation tooltips positioning
     // -------------------------
@@ -338,7 +338,7 @@ $(function() {
         }
     });
 
-        
+
     // Alternate navigation
     $('.navigation-alt').find('li').has('ul').children('a').on('click', function (e) {
         e.preventDefault();
@@ -350,7 +350,7 @@ $(function() {
         if ($('.navigation-alt').hasClass('navigation-accordion')) {
             $(this).parent('li').not('.disabled').siblings(':has(.has-ul)').removeClass('active').children('ul').slideUp(200);
         }
-    }); 
+    });
 
 
 
@@ -454,7 +454,7 @@ $(function() {
 
         // Opposite sidebar visibility
         $('body').toggleClass('sidebar-opposite-visible');
-        
+
         // If visible
         if ($('body').hasClass('sidebar-opposite-visible')) {
 
@@ -563,7 +563,7 @@ $(function() {
     $(window).on('resize', function() {
         setTimeout(function() {
             containerHeight();
-            
+
             if($(window).width() <= 768) {
 
                 // Add mini sidebar indicator
@@ -632,5 +632,104 @@ $(function() {
 
     // Tooltip
     $('[data-popup="tooltip"]').tooltip();
+
+});
+
+/* ------------------------------------------------------------------------------
+*
+*  # Sticky sidebar with custom scrollbar
+*
+*  Specific JS code additions for layout_sidebar_sticky_custom.html page
+*
+*  Version: 1.0
+*  Latest update: Aug 1, 2015
+*
+* ---------------------------------------------------------------------------- */
+
+$(function() {
+
+
+    // Mini sidebar
+    // -------------------------
+
+    // Setup
+    function miniSidebar() {
+        if ($('body').hasClass('sidebar-xs')) {
+            $('.sidebar-main.sidebar-fixed .sidebar-content').on('mouseenter', function () {
+                if ($('body').hasClass('sidebar-xs')) {
+
+                    // Expand fixed navbar
+                    $('body').removeClass('sidebar-xs').addClass('sidebar-fixed-expanded');
+                }
+            }).on('mouseleave', function () {
+                if ($('body').hasClass('sidebar-fixed-expanded')) {
+
+                    // Collapse fixed navbar
+                    $('body').removeClass('sidebar-fixed-expanded').addClass('sidebar-xs');
+                }
+            });
+        }
+    }
+
+    // Initialize
+    miniSidebar();
+
+
+    // Toggle mini sidebar
+    $('.sidebar-main-toggle').on('click', function (e) {
+
+        // Initialize mini sidebar
+        miniSidebar();
+    });
+
+
+    // Nice scroll
+    // ------------------------------
+
+	// Setup
+	function initScroll() {
+	    $(".sidebar-fixed .sidebar-content").niceScroll({
+	        mousescrollstep: 100,
+	        cursorcolor: '#ccc',
+	        cursorborder: '',
+	        cursorwidth: 3,
+	        hidecursordelay: 100,
+	        autohidemode: 'scroll',
+	        horizrailenabled: false,
+	        preservenativescrolling: false,
+	        railpadding: {
+	        	right: 0.5,
+	        	top: 1.5,
+	        	bottom: 1.5
+	        }
+	    });
+	}
+
+	// Remove
+	function removeScroll() {
+		$(".sidebar-fixed .sidebar-content").getNiceScroll().remove();
+		$(".sidebar-fixed .sidebar-content").removeAttr('style').removeAttr('tabindex');
+	}
+
+    // Initialize
+    initScroll();
+
+
+
+    // Remove scrollbar on mobile
+    $(window).on('resize', function() {
+        setTimeout(function() {
+            if($(window).width() <= 768) {
+
+                // Remove nicescroll on mobiles
+                removeScroll();
+            }
+            else {
+
+                // Init scrollbar
+                initScroll();
+            }
+        }, 100);
+    }).resize();
 
 });

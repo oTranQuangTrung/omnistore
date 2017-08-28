@@ -20,6 +20,10 @@ gem "slim"
 gem "devise"
 gem "omniauth-facebook"
 gem "koala"
+gem "kaminari"
+gem "carrierwave"
+gem "activemodel-serializers-xml"
+gem "draper", "3.0.0"
 
 group :development do
   gem "web-console", ">= 3.3.0"
