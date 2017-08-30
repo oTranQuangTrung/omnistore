@@ -18,6 +18,10 @@ module ApplicationHelper
     'active' if condition
   end
 
+  def small_side_bar_when condition
+    "sidebar-xs" if condition
+  end
+
   def show_errors object, field_name
     if object.errors.any?
       if !object.errors.messages[field_name].blank?

@@ -1,0 +1,32 @@
+.sidebar.sidebar-default
+  .sidebar-content
+    .tabbable.sortable
+      ul.nav.nav-lg.nav-tabs.nav-justified
+        li.active
+          = link_to "#all-tab", data: {toggle: "tab"} do
+            i.icon-drawer-in
+            span.visible-xs-inline-block.position-right = t ".all"
+        li
+          = link_to "#inbox-tab", data: {toggle: "tab"} do
+            i.icon-envelop3
+            span.visible-xs-inline-block.position-right = t ".inbox"
+        li
+          = link_to "#comment-tab", data: {toggle: "tab"} do
+            i.icon-bubbles9
+            span.visible-xs-inline-block.position-right = t ".comment"
+      .tab-content
+        #all-tab.tab-pane.active.no-padding
+          .sidebar-category
+            .category-content.no-padding
+              ul.media-list.media-list-linked
+                - 5.times do
+                  li.media
+                    = link_to "#", class: "media-link" do
+                      .media-left
+                        = image_tag default_image_path, class: "img-circle img-md", alt: ""
+                      .media-body
+                        span.media-heading.text-semibold = "Bobo"
+                        span.text-muted = "Putang ina mo..."
+
+        #inbox-tab.tab-pane.no-padding
+        #comment-tab.tab-pane.no-padding
