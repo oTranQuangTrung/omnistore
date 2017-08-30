@@ -1,0 +1,76 @@
+.content-group
+  .panel-body.bg-blue.border-radius-top.text-center[style="background-image: url(http://demo.interface.club/limitless/assets/images/bg.png); background-size: contain;"]
+    .content-group-sm
+      h5.text-semibold.no-margin-bottom
+        |  Victoria Davidson
+      span.display-block
+        | Head of UX
+    a.display-inline-block.content-group-sm[href="#"]
+      img.img-circle.img-responsive[src="#{image_url default_image_path}" alt="" style="width: 120px; height: 120px;"]
+    ul.list-inline.no-margin-bottom
+      li
+        a.btn.bg-blue-700.btn-rounded.btn-icon[href="#"]
+          i.icon-phone
+      li
+        a.btn.bg-blue-700.btn-rounded.btn-icon[href="#"]
+          i.icon-bubbles4
+      li
+        a.btn.bg-blue-700.btn-rounded.btn-icon[href="#"]
+          i.icon-envelop4
+  .panel.panel-body.no-border-top.no-border-radius-top
+    .form-group.mt-5
+      label.text-semibold
+        | Full name:
+      span.pull-right-sm
+        | Victoria Anna Davidson
+    .form-group
+      label.text-semibold
+        | Phone number:
+      span.pull-right-sm
+        | +3630 8911837
+    .form-group
+      label.text-semibold
+        | Corporate Email:
+      span.pull-right-sm
+        a[href="#"]
+          | corporate@domain.com
+    .form-group.no-margin-bottom
+      label.text-semibold
+        | Personal Email:
+      span.pull-right-sm
+        a[href="#"]
+          | personal@domain.com
+
+#accordion-controls.panel-group.accordion-sortable.content-group-lg
+  .panel.panel-white
+    .panel-heading
+      h6.panel-title
+        a[data-toggle="collapse" data-parent="#accordion-controls" href="#accordion-controls-group1"]
+          | Ghi Chú
+      .heading-elements
+        ul.icons-list
+          li
+            a[data-action="reload"]
+          li
+            a[data-action="move"]
+          li
+            a[data-action="close"]
+    #accordion-controls-group1.panel-collapse.collapse.in
+      .panel-body
+        |  Danh sách ghi chú
+  .panel.panel-white
+    .panel-heading
+      h6.panel-title
+        a.collapsed[data-toggle="collapse" data-parent="#accordion-controls" href="#accordion-controls-group2"]
+          | Đơn hàng
+      .heading-elements
+        ul.icons-list
+          li
+            a[data-action="reload"]
+          li
+            a[data-action="move"]
+          li
+            a[data-action="close"]
+    #accordion-controls-group2.panel-collapse.collapse
+      .panel-body
+        |  Danh sách đơn hàng

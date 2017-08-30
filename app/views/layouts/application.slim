@@ -19,7 +19,7 @@ html
     / Theme JS files
     = javascript_include_tag "core/app.js"
 
-  body.navbar-top
+  body class="navbar-top #{small_side_bar_when(current_controller?(:facebook_chats))}"
     / Main navbar
     = render "layouts/main_navbar"
     / Page container
@@ -27,6 +27,7 @@ html
       .page-content
         / Main sidebar
         = render "layouts/main_sidebar"
+        = yield :sidebar_secondary
         .content-wrapper
           .page-header.page-header-default
             = render "shared/breadcrumbs"
