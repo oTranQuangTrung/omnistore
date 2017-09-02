@@ -24,6 +24,7 @@ gem "kaminari"
 gem "carrierwave"
 gem "activemodel-serializers-xml"
 gem "draper", "3.0.0"
+gem "faraday"
 
 group :development do
   gem "web-console", ">= 3.3.0"

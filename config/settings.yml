@@ -1,3 +1,6 @@
+facebook:
+  host: "https://graph.facebook.com/v2.10"
+
 pagination:
   default: 10
   collections: 10

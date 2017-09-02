@@ -16,3 +16,16 @@ vi:
     destroy:
       deleted: *updated
       error_deleted: *error_update
+
+  shops:
+    create:
+      success: Tạo cửa hàng thành công
+      error: Tạo cửa hàng thất bại
+
+  facebook_connections:
+    create:
+      success: Kết nối thành công cửa hàng
+      alert: Kết nối thất bại, hãy thử lại hoặc liên hệ với quản trị viên
+    destroy:
+      success: Huỷ kết nối thành công
+      alert: Huỷ kết nối thất bại, hãy thử lại hoặc liên hệ với quản trị viên
