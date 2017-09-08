@@ -309,6 +309,7 @@ DEPENDENCIES
   draper (= 3.0.0)
   factory_girl_rails
   faker
+  faraday
   figaro
   guard-rspec
   jbuilder (~> 2.5)

@@ -4,7 +4,7 @@ li.media
     .text-muted = facebook_page.category_name
   .media-right.media-middle
     span.label.label-primary
-      = link_to connect_to_facebook_page_path(facebook_page_id: facebook_page.id), method: :post,
+      = link_to facebook_connections_path(facebook_page_id: facebook_page.id), method: :post,
         data: {confirm: t(".confirm", shop_name: current_shop.name, facebook_page_name: facebook_page.name)}
         span.label.label-primary
           = t ".connect"
