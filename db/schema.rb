@@ -43,6 +43,19 @@ ActiveRecord::Schema.define(version: 20170911084805) do
     t.index ["shop_id"], name: "index_collections_on_shop_id"
   end
 
+  create_table "customers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "profile_picture_url"
+    t.string "email"
+    t.string "phone_number"
+    t.string "address"
+    t.string "facebook_id"
+    t.integer "shop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["facebook_id", "shop_id"], name: "index_customers_on_facebook_id_and_shop_id", unique: true
+  end
+
   create_table "options", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "shop_id"
     t.string "name", null: false

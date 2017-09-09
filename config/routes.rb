@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resource :facebook_webhooks, only: [:show, :create]
   resource :facebook_chat, only: :show
+  resource :customers, only: [:show, :edit, :update]
 
   get "/set_current_shop" => "shops#set_current_shop"
 

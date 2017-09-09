@@ -1,0 +1,30 @@
+.content-group#customer-form
+  .panel-body.bg-blue.border-radius-top.text-center[style="background-image: url(http://demo.interface.club/limitless/assets/images/bg.png); background-size: contain;"]
+    .content-group-sm
+      .text-semibold.no-margin-bottom[style="height: 15px;"]
+        = customer.name
+    a.display-inline-block.content-group-sm[href="https://www.facebook.com/#{customer.facebook_id}", target="_blank"]
+      img.img-circle.img-responsive[src="#{customer.profile_picture_url}" alt="" style="width: 120px; height: 120px;"]
+  = form_for customer, url: customers_path(id: customer.id), remote: true do |f|
+    .panel.panel-body.no-border-top.no-border-radius-top
+      .form-group
+        = f.label :name, t(".fullname")
+        = f.text_field :name, class: "form-control"
+      .form-group
+        = f.label :phone_number, t(".phone_number")
+        = f.text_field :phone_number, class: "form-control"
+      .form-group
+        = f.label :email, t(".email")
+        = f.text_field :email, class: "form-control"
+      .form-group
+        = f.label :email, t(".address")
+        = f.text_field :address, class: "form-control"
+      = f.button :submit, class: "button btn btn-primary heading-btn", id: "submit" do
+        strong = t ".save"
+      button.button.btn.btn-default.heading-btn.ml-10#cancel-customer-form[type="button"]
+        strong = t ".cancel"
+
+javascript:
+  $("#cancel-customer-form").click(function () {
+    $("#user-info").html("#{j render(partial: 'facebook_chats/user_info', locals: {customer: customer})}")
+  })

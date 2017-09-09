@@ -1,0 +1,4 @@
+$("#customer-info .text-center a").on("ajax:success", displaySuccess);
+function displaySuccess () {
+  $("#user-info").html("<%= j render(partial: 'customers/form', locals: {customer: @customer}) %>");
+}

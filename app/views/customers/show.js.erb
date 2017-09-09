@@ -1,0 +1,5 @@
+$("#all-tab .media a").on("ajax:success", displaySuccess);
+function displaySuccess () {
+  $("#chat-box").html("<%= j render(partial: 'facebook_chats/chat_box') %>");
+  $("#user-info").html("<%= j render(partial: 'facebook_chats/user_info', locals: {customer: @customer}) %>");
+}
