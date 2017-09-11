@@ -11,8 +11,8 @@
 // about supported directives.
 //
 //= require plugins/loaders/pace.min.js
-//= require core/libraries/jquery.min.js
-//= require rails-ujs
+//= require jquery
+//= require jquery_ujs
 //= require core/libraries/bootstrap.min.js
 //= require plugins/loaders/blockui.min.js
 //= require plugins/ui/nicescroll.min.js
