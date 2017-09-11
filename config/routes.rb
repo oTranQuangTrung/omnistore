@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :collections
   resources :facebook_connections, only: [:create, :destroy]
 
+  resource :facebook_webhooks, only: [:show, :create]
   resource :facebook_chat, only: :show
 
   get "/set_current_shop" => "shops#set_current_shop"
