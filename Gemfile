@@ -25,6 +25,7 @@ gem "carrierwave"
 gem "activemodel-serializers-xml"
 gem "draper", "3.0.0"
 gem "faraday"
+gem "jquery-rails"
 
 group :development do
   gem "web-console", ">= 3.3.0"
