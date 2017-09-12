@@ -22,7 +22,7 @@ class FacebookConnectionsController < ApplicationController
   private
 
   def facebook_page
-    user_graph_api = Facebook::GraphApiService.call current_user.facebook_access_token
+    user_graph_api = Facebook::GraphApi.call current_user.facebook_access_token
 
     facebook_page_id = params[:facebook_page_id]
     access_token = user_graph_api.get_page_access_token facebook_page_id
