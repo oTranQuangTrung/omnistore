@@ -1,4 +1,4 @@
-[![Build Status](https://drone.steelbrains.com/api/badges/SteelBrains/omnistore/status.svg)](https://drone.steelbrains.com/SteelBrains/omnistore)
+[![Build Status](https://travis-ci.org/SteelBrains/omnistore.svg?branch=master)](https://travis-ci.org/SteelBrains/omnistore)
 
 When you do the work for the benefit of people, money does come — sometimes sooner and sometimes later.
 

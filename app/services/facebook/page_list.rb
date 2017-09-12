@@ -1,5 +1,5 @@
 module Facebook
-  class PageListService < BaseService
+  class PageList < BaseService
     def initialize user
       @user = user
     end
