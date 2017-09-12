@@ -1,4 +1,4 @@
-class Facebook::GraphApiService < BaseService
+class Facebook::GraphApi < BaseService
   def initialize access_token
     @access_token = access_token
   end
