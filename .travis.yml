@@ -1,0 +1,13 @@
+language: ruby
+
+cache:
+  bundler: true
+
+services:
+  - mysql
+
+bundler_args: --without test --jobs 3 --retry 3
+
+before_install:
+  - cp config/database.yml.sample config/database.yml
+  - mysql -e "CREATE DATABASE omnistore_test;"
