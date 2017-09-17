@@ -27,6 +27,12 @@ gem "draper", "3.0.0"
 gem "faraday"
 gem "jquery-rails"
 
+gem "capistrano"
+gem "capistrano3-puma"
+gem "capistrano-rails", require: false
+gem "capistrano-bundler", require: false
+gem "capistrano-rbenv"
+
 group :development do
   gem "web-console", ">= 3.3.0"
   gem "listen", ">= 3.0.5", "< 3.2"
