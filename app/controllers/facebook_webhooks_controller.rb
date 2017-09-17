@@ -3,7 +3,9 @@ class FacebookWebhooksController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def show
-    render plain: params["hub.challenge"]
+    if ENV["facebook_webhook_verify_token"] == params["hub.verify_token"]
+      render plain: params["hub.challenge"]
+    end
   end
 
   def create
