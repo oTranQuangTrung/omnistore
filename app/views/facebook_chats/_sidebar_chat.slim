@@ -21,7 +21,7 @@
               ul.media-list.media-list-linked
                 - 5.times do
                   li.media
-                    = link_to "#", class: "media-link" do
+                    = link_to customers_path(psid: 1774675929218313), remote: true, class: "media-link" do
                       .media-left
                         = image_tag default_image_path, class: "img-circle img-md", alt: ""
                       .media-body

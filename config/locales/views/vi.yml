@@ -66,9 +66,22 @@ vi:
       confirm: Bạn có chắc chắn muốn kết nối cửa hàng %{shop_name} với trang Facebook %{facebook_page_name} không ?
     index:
       empty: Bạn hiện không quản lý trang facebook nào.
+  common_user_info: &common_user_info
+    fullname: "Họ và tên:"
+    phone_number: "Số điện thoại:"
+    email: "Email:"
+    address: "Địa chỉ:"
   facebook_chats:
     show:
       disconnect_facebook_page: Ngắt kết nối với Facebook
+    user_info:
+      update_info: Cập nhật thông tin
+      <<: *common_user_info
+  customers:
+    form:
+      <<: *common_user_info
+      save: Lưu
+      cancel: Hủy thay đổi
   collections:
     index:
       page_title: Nhóm sản phẩm

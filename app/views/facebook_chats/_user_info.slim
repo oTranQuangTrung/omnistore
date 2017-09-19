@@ -1,45 +1,35 @@
-.content-group
+.content-group#customer-info
   .panel-body.bg-blue.border-radius-top.text-center[style="background-image: url(http://demo.interface.club/limitless/assets/images/bg.png); background-size: contain;"]
     .content-group-sm
-      h5.text-semibold.no-margin-bottom
-        |  Victoria Davidson
-      span.display-block
-        | Head of UX
-    a.display-inline-block.content-group-sm[href="#"]
-      img.img-circle.img-responsive[src="#{image_url default_image_path}" alt="" style="width: 120px; height: 120px;"]
-    ul.list-inline.no-margin-bottom
-      li
-        a.btn.bg-blue-700.btn-rounded.btn-icon[href="#"]
-          i.icon-phone
-      li
-        a.btn.bg-blue-700.btn-rounded.btn-icon[href="#"]
-          i.icon-bubbles4
-      li
-        a.btn.bg-blue-700.btn-rounded.btn-icon[href="#"]
-          i.icon-envelop4
+      .text-semibold.no-margin-bottom[style="height: 15px;"]
+        = customer.name
+    a.display-inline-block.content-group-sm[href="https://www.facebook.com/#{customer.facebook_id}", target="_blank"]
+      img.img-circle.img-responsive[src="#{customer.profile_picture_url}" alt="" style="width: 120px; height: 120px;"]
   .panel.panel-body.no-border-top.no-border-radius-top
+    .text-center
+      = link_to t(".update_info"), edit_customers_path(id: customer.id), remote: true
     .form-group.mt-5
       label.text-semibold
-        | Full name:
+        = t ".fullname"
       span.pull-right-sm
-        | Victoria Anna Davidson
+        = customer.name
     .form-group
       label.text-semibold
-        | Phone number:
+        = t ".phone_number"
       span.pull-right-sm
-        | +3630 8911837
+        = customer.phone_number
     .form-group
       label.text-semibold
-        | Corporate Email:
+        = t ".email"
       span.pull-right-sm
-        a[href="#"]
-          | corporate@domain.com
+        a[href="javascript:void(0)"]
+          = customer.email
     .form-group.no-margin-bottom
       label.text-semibold
-        | Personal Email:
+        = t ".address"
       span.pull-right-sm
-        a[href="#"]
-          | personal@domain.com
+        a href="javascript:void(0)"
+          = customer.address
 
 #accordion-controls.panel-group.accordion-sortable.content-group-lg
   .panel.panel-white

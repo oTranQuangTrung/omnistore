@@ -1,0 +1,4 @@
+$("#customer-form .edit_customer").on("ajax:success", displaySuccess);
+function displaySuccess () {
+  $("#user-info").html("<%= j render(partial: 'facebook_chats/user_info', locals: {customer: @customer}) %>");
+}

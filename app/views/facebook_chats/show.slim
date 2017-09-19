@@ -2,10 +2,8 @@
   = render "sidebar_chat"
 .content.no-padding
   .row.no-margin
-    .col-sm-8.no-padding
-      = render "chat_box"
-    .col-sm-4.hidden-xs.no-padding
-      = render "user_info"
+    .col-sm-8.no-padding id="chat-box"
+    .col-sm-4.hidden-xs.no-padding id="user-info"
 
 = content_for :body_javascript do
   javascript:
