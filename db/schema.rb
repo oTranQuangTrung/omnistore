@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170911084805) do
+ActiveRecord::Schema.define(version: 20170920171321) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "shop_id"
@@ -53,7 +53,17 @@ ActiveRecord::Schema.define(version: 20170911084805) do
     t.integer "shop_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "province_id"
     t.index ["facebook_id", "shop_id"], name: "index_customers_on_facebook_id_and_shop_id", unique: true
+    t.index ["id", "province_id"], name: "index_customers_on_id_and_province_id", unique: true
+  end
+
+  create_table "districts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "province_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["province_id"], name: "index_districts_on_province_id"
   end
 
   create_table "options", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -105,6 +115,12 @@ ActiveRecord::Schema.define(version: 20170911084805) do
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["shop_id"], name: "index_products_on_shop_id"
     t.index ["vendor_id"], name: "index_products_on_vendor_id"
+  end
+
+  create_table "provinces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "shops", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -181,6 +197,7 @@ ActiveRecord::Schema.define(version: 20170911084805) do
   add_foreign_key "collection_products", "collections"
   add_foreign_key "collection_products", "products"
   add_foreign_key "collections", "shops"
+  add_foreign_key "districts", "provinces"
   add_foreign_key "options", "shops"
   add_foreign_key "product_options", "options"
   add_foreign_key "product_options", "products"
