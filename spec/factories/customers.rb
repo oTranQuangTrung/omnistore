@@ -7,5 +7,6 @@ FactoryGirl.define do
     address "MyString"
     facebook_id "facebook_id"
     shop_id "shop_id"
+    province_id 1
   end
 end
