@@ -1,6 +1,7 @@
-development:
-  omnistore_facebook_app_id: 4522721031812938
-  omnistore_facebook_app_secret: 433a302a483e623714e478aa2493916f1
-  omnistore_facebook_callback_url: http://localhost:3000/users/auth/facebook/callback
+omnistore_facebook_app_id: 4522721031812938
+omnistore_facebook_app_secret: 433a302a483e623714e478aa2493916f1
+omnistore_facebook_callback_url: http://localhost:3000/users/auth/facebook/callback
 
-  facebook_webhook_verify_token: sdf53K22ac9sdnXz
+facebook_webhook_verify_token: sdf53K22ac9sdnXz
+REDIS_HOST: localhost
+HOST:

@@ -1,0 +1,62 @@
+App.messages = App.cable.subscriptions.create(
+  {
+    channel: "FacebookMessagesChannel",
+    fid: "<%= current_shop.facebook_page.fid %>"
+  },
+  {
+  connected: function(){
+    console.log("Connected !");
+  },
+  received: function(data) {
+    console.log(data);
+    data.messaging.forEach(function(message_data) {
+      var message_elements = generate_message_elements(message_data);
+      message_elements.forEach(function(message_element) {
+        append_new_message(message_element);
+      });
+    });
+  }
+});
+
+function scrollDown() {
+  $(".media-list.chat-list").scrollTop($(".media-list.chat-list")[0].scrollHeight);
+}
+
+function generate_message_elements(message_data) {
+  var message_elements = [];
+  if (message_data.message.text) {
+    message_elements.push(message_data.message.text);
+  } else if (message_data.message.attachments) {
+    var attachments = message_data.message.attachments;
+    attachments.forEach(function(attachment) {
+      if (attachment.type == "image") {
+        message_elements.push(`<img src=${attachment.payload.url} >`);
+      } else if (attachment.type == "file") {
+        message_elements.push(`<a href=${attachment.payload.url} >You got a file, click to download !</a>`);
+      }
+    });
+  }
+
+  return message_elements;
+}
+
+function append_new_message(message_element) {
+  // Return neu khong trong man hinh chatting
+  if (!$(".media-list.chat-list")[0]) {
+    return;
+  }
+
+  html = [
+    "<li class='media'>",
+    "  <div class='media-left'>",
+    "    <a href='#' class='btn border-primary text-primary btn-flat btn-rounded btn-icon btn-sm'><i class='icon-git-pull-request'></i></a>",
+    "  </div>",
+    "  <div class='media-body'>",
+    `    ${message_element}`,
+    "    <div class='media-annotation'>4 minutes ago</div>",
+    "  </div>",
+    "</li>"
+  ].join("\n");
+  $(".media-list.chat-list").append(html);
+  scrollDown();
+}

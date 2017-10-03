@@ -11,6 +11,8 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    environment:
+      REDIS_HOST: redis
   db:
     image: mysql:5.7
     volumes:
@@ -18,3 +20,7 @@ services:
       - "./Dockerfiles/mysql/conf.d:/etc/mysql/conf.d"
     environment:
       MYSQL_ROOT_PASSWORD: password
+  redis:
+    image: redis:4
+    ports:
+      - "6379:6379"
