@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170920171321) do
+ActiveRecord::Schema.define(version: 20171007110823) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "shop_id"
@@ -64,6 +64,17 @@ ActiveRecord::Schema.define(version: 20170920171321) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["province_id"], name: "index_districts_on_province_id"
+  end
+
+  create_table "facebook_pages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "access_token"
+    t.string "category"
+    t.string "name"
+    t.string "fid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_facebook_pages_on_user_id"
   end
 
   create_table "options", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -127,8 +138,8 @@ ActiveRecord::Schema.define(version: 20170920171321) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "facebook_page_id"
-    t.string "facebook_page_access_token"
+    t.bigint "facebook_page_id"
+    t.index ["facebook_page_id"], name: "index_shops_on_facebook_page_id"
   end
 
   create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -198,6 +209,7 @@ ActiveRecord::Schema.define(version: 20170920171321) do
   add_foreign_key "collection_products", "products"
   add_foreign_key "collections", "shops"
   add_foreign_key "districts", "provinces"
+  add_foreign_key "facebook_pages", "users"
   add_foreign_key "options", "shops"
   add_foreign_key "product_options", "options"
   add_foreign_key "product_options", "products"
@@ -206,6 +218,7 @@ ActiveRecord::Schema.define(version: 20170920171321) do
   add_foreign_key "products", "categories"
   add_foreign_key "products", "shops"
   add_foreign_key "products", "vendors"
+  add_foreign_key "shops", "facebook_pages"
   add_foreign_key "tags", "shops"
   add_foreign_key "user_shops", "shops"
   add_foreign_key "user_shops", "users"
