@@ -3,7 +3,6 @@ require "rails_helper"
 describe Shops::RetrieveCustomerService do
   describe ".call" do
     let :shop {FactoryGirl.create :shop}
-    let :province {FactoryGirl.create :province}
     let :psid_1 {1}
     let :psid_2 {2}
 
@@ -39,7 +38,7 @@ describe Shops::RetrieveCustomerService do
       end
 
       context "exists customer" do
-        before {FactoryGirl.create :customer, facebook_id: psid_2, shop_id: shop.id, profile_picture_url: "xxx.jpg", province_id: province.id}
+        before {FactoryGirl.create :customer, facebook_id: psid_2, shop_id: shop.id, profile_picture_url: "xxx.jpg"}
 
         describe "check number record" do
           it "should not change number of record Customer" do

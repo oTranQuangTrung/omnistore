@@ -9,7 +9,6 @@ RSpec.describe Province, type: :model do
   end
 
   describe "ActiveRecord Association" do
-    it {is_expected.to have_many :customers}
     it {is_expected.to have_many(:districts).dependent :destroy}
   end
 end
