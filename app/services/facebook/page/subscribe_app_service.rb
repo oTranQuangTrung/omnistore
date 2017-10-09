@@ -19,6 +19,6 @@ class Facebook::Page::SubscribeAppService < Facebook::Page::BaseService
   end
 
   def subscribe_apps_url
-    File.join Settings.facebook.host, facebook_page.fid, "subscribed_apps"
+    File.join Settings.facebook.host, facebook_page.facebook_id, "subscribed_apps"
   end
 end

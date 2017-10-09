@@ -1,7 +1,7 @@
 class FacebookMessagesChannel < ApplicationCable::Channel
   def subscribed
     if verify_facebook_page_owner
-      stream_from "facebook_messages_for_page_#{params[:fid]}"
+      stream_from "facebook_messages_for_page_#{params[:facebook_id]}"
     else
       # TODO Alert invalid access
     end
@@ -10,6 +10,6 @@ class FacebookMessagesChannel < ApplicationCable::Channel
   private
 
   def verify_facebook_page_owner
-    current_user.ownable? FacebookPage.find_by(fid: params[:fid])
+    current_user.ownable? FacebookPage.find_by(facebook_id: params[:facebook_id])
   end
 end
