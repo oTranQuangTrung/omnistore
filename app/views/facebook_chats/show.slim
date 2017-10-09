@@ -7,4 +7,5 @@
 
 = content_for :body_javascript do
   javascript:
+    #{render "facebook_messages.js"}
     $(".chat-list").scrollTop($(this).height());

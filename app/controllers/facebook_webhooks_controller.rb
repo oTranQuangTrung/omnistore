@@ -9,6 +9,6 @@ class FacebookWebhooksController < ApplicationController
   end
 
   def create
-    # binding.pry
+    BroadcastFacebookMessage.new.execute params
   end
 end

@@ -1,10 +1,17 @@
 development:
-  adapter: async
+  adapter: redis
+  url: redis://<%= ENV["REDIS_HOST"] %>:6379/1
+  channel_prefix: omnistore_development
 
 test:
   adapter: async
 
+staging:
+  adapter: redis
+  url: redis://<%= ENV["REDIS_HOST"] %>:6379/1
+  channel_prefix: omnistore_staging
+
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis://<%= ENV["REDIS_HOST"] %>:6379/1
   channel_prefix: omnistore_production
