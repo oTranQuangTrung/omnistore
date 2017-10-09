@@ -1,7 +1,7 @@
 App.messages = App.cable.subscriptions.create(
   {
     channel: "FacebookMessagesChannel",
-    fid: "<%= current_shop.facebook_page.fid %>"
+    facebook_id: "<%= current_shop.facebook_page.facebook_id %>"
   },
   {
   connected: function(){

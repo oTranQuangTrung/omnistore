@@ -20,7 +20,7 @@ class Facebook::User::UpdateFacebookPageListService < Facebook::User::BaseServic
     page_list_data = graph_api.get_connections "me", "accounts"
     page_list_data.map do |page_data|
       user.facebook_pages.create! category: page_data["category"], access_token: page_data["access_token"],
-        name: page_data["name"], fid: page_data["id"]
+        name: page_data["name"], facebook_id: page_data["id"]
     end
   end
 end
