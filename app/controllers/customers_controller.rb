@@ -3,7 +3,7 @@ class CustomersController < ApplicationController
   layout false, only: [:show, :edit, :update]
 
   def show
-    @customer = Facebook::RetrieveShopCustomer.call current_shop, params[:psid]
+    @customer = Shops::RetrieveCustomerService.new(current_shop).execute params[:psid]
   end
 
   def edit

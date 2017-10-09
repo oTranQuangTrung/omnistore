@@ -1,8 +1,11 @@
 class User < ApplicationRecord
+  include User::Ownable
+
   devise :database_authenticatable, :registerable, :rememberable,
          :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
   has_many :user_shops, dependent: :destroy
   has_many :shops, through: :user_shops
+  has_many :facebook_pages
 
   class << self
     def new_with_session(params, session)

@@ -8,13 +8,7 @@ class Shop < ApplicationRecord
   has_many :tags, dependent: :destroy
   has_many :vendors, dependent: :destroy
 
+  belongs_to :facebook_page, optional: true
+
   validates :name, presence: true
-
-  def connect_to_facebook_page facebook_page
-    Shop::ConnectToFacebookPage.call self, facebook_page
-  end
-
-  def disconnect_facebook_page facebook_page
-    Shop::DisconnectFacebookPage.call self, facebook_page
-  end
 end

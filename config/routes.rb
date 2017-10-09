@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :facebook_pages, only: :index
   resources :shops, only: [:new, :create, :index]
   resources :collections
-  resources :facebook_connections, only: [:create, :destroy]
+  resources :facebook_shop_connections, only: [:create, :destroy]
 
   resource :facebook_webhooks, only: [:show, :create]
   resource :facebook_chat, only: :show

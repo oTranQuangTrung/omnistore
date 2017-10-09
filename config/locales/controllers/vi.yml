@@ -22,10 +22,15 @@ vi:
       success: Tạo cửa hàng thành công
       error: Tạo cửa hàng thất bại
 
-  facebook_connections:
+  facebook_shop_connections:
     create:
-      success: Kết nối thành công cửa hàng
-      alert: Kết nối thất bại, hãy thử lại hoặc liên hệ với quản trị viên
+      alert:
+        not_ownable: Bạn không quản lý Facebook Page này
+        shop_connected: Cửa hàng đang được kết nối tới Facebook Page khác
+        facebook_page_connected: Facebook Page này đang được kết nối tới cửa hàng
+        facebook_page_not_found: Facebook Page không tồn tại
+      success:
+        connected: Kết nối thành công cửa hàng
     destroy:
       success: Huỷ kết nối thành công
       alert: Huỷ kết nối thất bại, hãy thử lại hoặc liên hệ với quản trị viên

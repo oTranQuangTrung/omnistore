@@ -1,5 +1,7 @@
 class BaseService
-  def self.call *args
-    new(*args).call
+  attr_reader :error
+
+  def success?
+    error.nil?
   end
 end

@@ -1,10 +1,10 @@
 li.media
   .media-body
     .media-heading.text-semibold = facebook_page.name
-    .text-muted = facebook_page.category_name
+    .text-muted = facebook_page.category
   .media-right.media-middle
     span.label.label-primary
-      = link_to facebook_connections_path(facebook_page_id: facebook_page.id), method: :post,
+      = link_to facebook_shop_connections_path(facebook_page_id: facebook_page.id), method: :post,
         data: {confirm: t(".confirm", shop_name: current_shop.name, facebook_page_name: facebook_page.name)}
         span.label.label-primary
           = t ".connect"

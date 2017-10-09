@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe Facebook::RetrieveShopCustomer do
+describe Shops::RetrieveCustomerService do
   describe ".call" do
     let :shop {FactoryGirl.create :shop}
     let :province {FactoryGirl.create :province}
@@ -14,7 +14,7 @@ describe Facebook::RetrieveShopCustomer do
     end
 
     describe "output service" do
-      subject {Facebook::RetrieveShopCustomer.call shop, psid_1}
+      subject {Shops::RetrieveCustomerService.new(shop).execute psid_1}
       it "should return customer object" do
         is_expected.to be_a Customer
       end
@@ -24,12 +24,12 @@ describe Facebook::RetrieveShopCustomer do
       context "new customer" do
         describe "check number record" do
           it "should change number of record Customer" do
-            expect {Facebook::RetrieveShopCustomer.call shop, psid_1}.to change{Customer.count}.by(1)
+            expect {Shops::RetrieveCustomerService.new(shop).execute psid_1}.to change{Customer.count}.by(1)
           end
         end
 
         describe "attributes update" do
-          subject {Facebook::RetrieveShopCustomer.call shop, psid_1}
+          subject {Shops::RetrieveCustomerService.new(shop).execute psid_1}
           it "should create instance Customer with attributes value" do
             expect(subject.profile_picture_url).to eq "picture.jpg"
             expect(subject.name).to eq "Hi Hi"
@@ -43,12 +43,12 @@ describe Facebook::RetrieveShopCustomer do
 
         describe "check number record" do
           it "should not change number of record Customer" do
-            expect {Facebook::RetrieveShopCustomer.call shop, psid_2}.to_not change{Customer.count}
+            expect {Shops::RetrieveCustomerService.new(shop).execute psid_2}.to_not change{Customer.count}
           end
         end
 
         describe "attributes update" do
-          subject {Facebook::RetrieveShopCustomer.call shop, psid_2}
+          subject {Shops::RetrieveCustomerService.new(shop).execute psid_2}
           it "should change profile picture url" do
             expect(subject.profile_picture_url).to eq "picture.jpg"
           end

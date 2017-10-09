@@ -4,10 +4,6 @@ class FacebookChatsController < ApplicationController
 
   def show
     # TODO
-    page_graph_api = Facebook::GraphApi.call current_shop.facebook_page_access_token
-    facebook_page_info = page_graph_api.get_object "me"
-    @facebook_page = FacebookPage.new id: facebook_page_info["id"],
-      name: facebook_page_info["name"]
   end
 
   private

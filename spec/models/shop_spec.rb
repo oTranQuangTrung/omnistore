@@ -21,21 +21,4 @@ RSpec.describe Shop, type: :model do
     it {is_expected.to have_many(:tags).dependent(:destroy)}
     it {is_expected.to have_many(:vendors).dependent(:destroy)}
   end
-
-  describe "public instance methods" do
-    context "responds to its methods" do
-      it { expect(shop).to respond_to(:connect_to_facebook_page) }
-      it { expect(shop).to respond_to(:disconnect_facebook_page) }
-    end
-
-    context "executes methods correctly" do
-      context "#connect_to_facebook_page" do
-        #TODO
-      end
-
-      context "#disconnect_facebook_page" do
-        #TODO
-      end
-    end
-  end
 end
