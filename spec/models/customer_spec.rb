@@ -1,5 +1,8 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Customer, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  describe "ActiveRecord Association" do                                                                                                                     
+    it {is_expected.to have_one(:customer_address).dependent :destroy}                 
+  end
 end

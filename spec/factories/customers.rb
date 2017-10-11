@@ -1,12 +1,11 @@
 FactoryGirl.define do
   factory :customer do
-    name "MyString"
+    name {Faker::Name.name}
     profile_picture_url "MyString"
-    email "MyString"
-    phone_number "MyString"
+    email {Faker::Internet.email}
+    phone_number {Faker::PhoneNumber.phone_number} 
     address "MyString"
-    facebook_id "facebook_id"
-    shop_id "shop_id"
-    province_id 1
+    facebook_id {Faker::Number.number(10)}
+    shop_id {FactoryGirl.create(:shop).id}
   end
 end

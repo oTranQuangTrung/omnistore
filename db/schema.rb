@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171009074927) do
+ActiveRecord::Schema.define(version: 20171009144415) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "shop_id"
@@ -43,6 +43,18 @@ ActiveRecord::Schema.define(version: 20171009074927) do
     t.index ["shop_id"], name: "index_collections_on_shop_id"
   end
 
+  create_table "customer_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "customer_id"
+    t.bigint "province_id"
+    t.bigint "district_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id", "province_id", "district_id"], name: "customer_address_index", unique: true
+    t.index ["customer_id"], name: "index_customer_addresses_on_customer_id"
+    t.index ["district_id"], name: "index_customer_addresses_on_district_id"
+    t.index ["province_id"], name: "index_customer_addresses_on_province_id"
+  end
+
   create_table "customers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "profile_picture_url"
@@ -53,9 +65,8 @@ ActiveRecord::Schema.define(version: 20171009074927) do
     t.integer "shop_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "province_id"
     t.index ["facebook_id", "shop_id"], name: "index_customers_on_facebook_id_and_shop_id", unique: true
-    t.index ["id", "province_id"], name: "index_customers_on_id_and_province_id", unique: true
+    t.index ["id"], name: "index_customers_on_id_and_province_id", unique: true
   end
 
   create_table "districts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
