@@ -17,8 +17,15 @@
         = f.label :email, t(".email")
         = f.text_field :email, class: "form-control"
       .form-group
-        = f.label :email, t(".address")
+        = f.label :address, t(".address")
         = f.text_field :address, class: "form-control"
+      .form-group.row
+        = f.fields_for :customer_address do |customer_address_field|
+          .col-md-6
+            = customer_address_field.select :province_id, @provinces, {}, {class: "form-control"}
+          .col-md-6
+            = customer_address_field.select :district_id, @districts, {}, {class: "form-control"}
+
       = f.button :submit, class: "button btn btn-primary heading-btn", id: "submit" do
         strong = t ".save"
       button.button.btn.btn-default.heading-btn.ml-10#cancel-customer-form[type="button"]

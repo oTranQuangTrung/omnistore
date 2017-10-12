@@ -7,15 +7,19 @@ class CustomersController < ApplicationController
   end
 
   def edit
+    @provinces = Province.pluck :name, :id
+    @districts = District.pluck :name, :id
+    @customer.build_customer_address
   end
 
   def update
+    binding.pry
     @customer.update_attributes customer_params
   end
 
   private
   def customer_params
-    params.require(:customer).permit :name, :email, :phone_number, :address
+    params.require(:customer).permit :name, :email, :phone_number, :address, customer_address_attributes: [:id, :province_id, :district_id]
   end
 
   def load_customer
